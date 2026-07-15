@@ -1,0 +1,74 @@
+@import "tailwindcss";
+@plugin '@tailwindcss/typography';
+
+/* ---------------------------------------------------------------------------
+ * Direção "Registro": papel de arquivo + verde-registro de livro-razão de
+ * cartório + latão no selo. Ancorada no mundo do registro de imóvel, não no
+ * azul-SaaS genérico. Tokens Tailwind 4 via @theme.
+ * ------------------------------------------------------------------------- */
+@theme {
+  /* Superfícies — papel de arquivo quente */
+  --color-paper: #eae5d8;
+  --color-paper-raised: #f4f1e7;
+  --color-line: #d4cdb9;
+
+  /* Tinta e texto */
+  --color-ink: #1b201a;
+  --color-stone: #6a6d5f;
+
+  /* Verde-registro (primária) */
+  --color-ledger: #23402e;
+  --color-ledger-deep: #16281d;
+  --color-ledger-soft: #dfe3d6;
+
+  /* Latão/ocre — reservado ao selo e detalhes de acento */
+  --color-brass: #9c7a33;
+
+  /* Cantos de documento: quase retos */
+  --radius-doc: 3px;
+
+  --font-display:
+    "Iowan Old Style", "Palatino Linotype", Palatino, "Hoefler Text", Georgia, "Times New Roman",
+    serif;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", "Menlo", "Consolas", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Compensa o header fixo ao pular para âncoras. */
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Eyebrow de dado de registro: rótulo em mono, versalete, tracking largo. */
+.registry-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Regra de livro-razão: hairline com tique nas pontas. */
+.ledger-rule {
+  border-top: 1px solid var(--color-line);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
