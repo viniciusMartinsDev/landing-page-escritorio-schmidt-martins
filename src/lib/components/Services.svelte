@@ -14,7 +14,7 @@
 				</h2>
 			</div>
 			<p class="max-w-sm text-stone">
-				Da lavratura da escritura ao registro na matrícula — um interlocutor só, do começo ao fim.
+				Da escritura ao registro na matrícula — um interlocutor só, do começo ao fim.
 			</p>
 		</div>
 

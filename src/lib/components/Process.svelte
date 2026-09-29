@@ -10,7 +10,7 @@
 				Do primeiro contato ao carimbo final
 			</h2>
 			<p class="mt-4 text-lg text-stone">
-				Quatro etapas, cada uma acompanhada de perto — sem que você precise ir a cartório.
+				Quatro etapas, cada uma acompanhada de perto — sem que você precise sair de sua casa.
 			</p>
 		</div>
 

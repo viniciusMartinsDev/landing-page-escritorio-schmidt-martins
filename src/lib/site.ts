@@ -23,6 +23,9 @@ export const CONTACT = {
   phoneDisplay: "(43) 99609-2982",
   whatsappNumber: "5543996092982",
   instagramHandle: "despachantesimobiliarios.sap",
+  // Coordenadas do pin oficial da empresa no Google Maps.
+  mapsLatitude: -23.2999007,
+  mapsLongitude: -50.0841253,
 } as const;
 
 /** URL do WhatsApp com mensagem pré-preenchida. */
@@ -32,6 +35,20 @@ export function whatsappUrl(message: string): string {
 
 /** URL do perfil no Instagram. */
 export const instagramUrl = `https://instagram.com/${CONTACT.instagramHandle}`;
+
+/**
+ * URL de embed do Google Maps (sem API key) apontando para o escritório.
+ *
+ * @example
+ * <iframe src={mapsEmbedUrl()} title="Mapa" />
+ */
+export function mapsEmbedUrl(): string {
+  const query = `${CONTACT.name}@${CONTACT.mapsLatitude},${CONTACT.mapsLongitude}`;
+  return `https://maps.google.com/maps?q=${encodeURIComponent(query)}&z=17&output=embed`;
+}
+
+/** URL para abrir a localização do escritório no Google Maps. */
+export const mapsPlaceUrl = `https://www.google.com/maps/search/?api=1&query=${CONTACT.mapsLatitude},${CONTACT.mapsLongitude}`;
 
 /** URL de discagem telefônica. */
 export const telUrl = `tel:+${CONTACT.whatsappNumber}`;
@@ -55,25 +72,25 @@ export const SERVICES: Service[] = [
   },
   {
     title: "Escrituras públicas",
-    description: "Lavratura e acompanhamento de escrituras de compra, venda e doação em cartório.",
+    description: "Acompanhamento de escrituras de compra, venda, permuta e doação em cartório.",
     icon: DeedIcon,
   },
   {
     title: "Inventário extrajudicial",
     description:
-      "Partilha de bens de herança em cartório, com agilidade e segurança para toda a família.",
+      "Partilha de bens de herança em cartório e regularização de partilha, com agilidade e segurança para toda a família.",
     icon: InheritanceIcon,
   },
   {
     title: "Desmembramento e divisão",
     description:
-      "Desmembramento, unificação e divisão de lotes com toda a documentação regularizada.",
+      "Regularização de desmembramento, com toda a documentação averbada. Desmembramento, unificação e divisão de lotes com toda a documentação regularizada.",
     icon: DivideIcon,
   },
   {
     title: "Contratos imobiliários",
     description:
-      "Elaboração de contratos de compra, venda, permuta e demais negócios com respaldo jurídico.",
+      "Elaboração de contratos de compra, venda, permuta e demais negócios imobiliários com respaldo jurídico.",
     icon: ContractIcon,
   },
   {

@@ -15,7 +15,7 @@
 			<div>
 				<p class="registry-label flex items-center gap-3 text-brass">
 					<span class="h-px w-8 bg-brass"></span>
-					Matrícula · Escritura · Inventário
+					Matrícula · Escritura
 				</p>
 
 				<h1
@@ -26,8 +26,9 @@
 				</h1>
 
 				<p class="mt-7 max-w-xl text-lg leading-relaxed text-stone">
-					Transformamos posse em propriedade. Há mais de {CONTACT.yearsOfExperience} anos
-					cuidamos de escrituras, inventários e regularização em {CONTACT.city} — do
+					Transformamos problemas em <span class="text-ledger italic">solução</span>, trazendo
+					valorização ao seu imóvel. Há mais de {CONTACT.yearsOfExperience} anos cuidando de cada
+					etapa de regularização do seu imóvel em {CONTACT.city}/{CONTACT.state} e região, do
 					primeiro documento ao carimbo final na matrícula.
 				</p>
 

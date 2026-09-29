@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Seal from './Seal.svelte';
-	import { CONTACT } from '$lib/site';
+	import { CONTACT, mapsEmbedUrl, mapsPlaceUrl } from '$lib/site';
 
 	const highlights: string[] = [
 		'Atendimento pessoal, do primeiro contato à entrega',
@@ -14,12 +14,11 @@
 		<div>
 			<p class="registry-label text-brass">Quem assina</p>
 			<h2 class="mt-3 font-display text-3xl font-semibold tracking-tight text-ink md:text-[2.6rem]">
-				Três décadas cuidando do patrimônio de famílias da região
+				Três décadas cuidando do seu patrimônio
 			</h2>
 			<p class="mt-5 text-lg leading-relaxed text-stone">
 				A {CONTACT.name} nasceu em {CONTACT.city} com um propósito simples: descomplicar a
-				documentação imobiliária. Em mais de {CONTACT.yearsOfExperience} anos, ajudamos
-				centenas de proprietários a converter imóveis irregulares em patrimônio seguro e
+				documentação imobiliária. Ajudamos centenas de proprietários a converter imóveis irregulares em patrimônio seguro e
 				valorizado.
 			</p>
 
@@ -35,24 +34,30 @@
 			</ul>
 		</div>
 
-		<!-- Retrato emoldurado como prova de arquivo; trocar por foto real depois. -->
+		<!-- Mapa emoldurado como prova de arquivo; substitui o antigo placeholder da foto da equipe. -->
 		<figure class="relative">
 			<div
 				class="aspect-[4/5] overflow-hidden border border-line bg-ledger-soft p-3"
 			>
-				<div
-					class="flex h-full w-full flex-col items-center justify-center gap-3 border border-dashed border-ledger/25 text-ledger/40"
-				>
-					<svg class="h-14 w-14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1">
-						<circle cx="12" cy="8" r="4" />
-						<path d="M4 21c0-4 4-6 8-6s8 2 8 6" stroke-linecap="round" />
-					</svg>
-					<span class="registry-label">Foto da equipe</span>
-				</div>
+				<iframe
+					src={mapsEmbedUrl()}
+					title="Localização da {CONTACT.shortName} no mapa"
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"
+					class="h-full w-full border-0"
+				></iframe>
 			</div>
 			<Seal class="absolute -bottom-6 -left-6 hidden w-24 rotate-[8deg] text-brass sm:block" />
 			<figcaption class="registry-label mt-4 text-stone">
-				{CONTACT.city} · {CONTACT.state}
+				{CONTACT.city} · {CONTACT.state} ·
+				<a
+					href={mapsPlaceUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="text-ink underline-offset-4 transition-colors hover:text-ledger hover:underline"
+				>
+					Abrir no Google Maps ↗
+				</a>
 			</figcaption>
 		</figure>
 	</div>
